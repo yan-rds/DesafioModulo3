@@ -20,5 +20,6 @@ public class Sistema {
         String nome = capturarDados("Qual é o nome do cliente?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do cliente:")).nextLine();
         String email = capturarDados("Qual é o email do cliente?").nextLine();
+        return ServiceCliente.cadastrarCliente(nome, cpf, email);
     }
 }
