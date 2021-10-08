@@ -6,12 +6,12 @@ import java.util.List;
 public class ServiceVenda {
     private static List<Venda> listaDeVendas = new ArrayList<>();
 
-    public static Venda cadastrarVenda (String emailCliente, String emailVendedor, double Valor, String data) throws Exception{
-        ServiceCliente.encontrarClientePeloEmail(emailCliente);
-        ServiceVendedor.encontrarVendedorPeloEmail(emailCliente);
-        // Instanciar uma venda com essas informações
-        // Adicionar a venda à lista de vendas
-        // Retornar Venda
+    public static Venda cadastrarVenda (String emailCliente, String emailVendedor, double valor, String data) throws Exception{
+        Cliente cliente = ServiceCliente.encontrarClientePeloEmail(emailCliente);
+        Vendedor vendedor = ServiceVendedor.encontrarVendedorPeloEmail(emailVendedor);
+        Venda venda = new Venda(cliente, vendedor, valor, data);
+        listaDeVendas.add(venda);
+        return venda;
     }
 
     public static void listarVendasCadastradas() {
