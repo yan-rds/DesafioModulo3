@@ -12,4 +12,13 @@ public class ServiceVendedor {
         listaDeVendedor.add(vendedor);
         return vendedor;
     }
+
+    public static Vendedor encontrarVendedorPeloEmail (String email) throws Exception{
+        for (Vendedor referencia : listaDeVendedor){
+            if (referencia.getEmail().equalsIgnoreCase(email)){
+                return referencia;
+            }
+        }
+        throw new Exception("Não existe um vendedor cadastrado com este email");
+    }
 }
