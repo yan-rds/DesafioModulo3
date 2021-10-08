@@ -16,10 +16,11 @@ public class Sistema {
         String data = capturarDados("Qual é a data do registro").nextLine();
     }
 
-    public static Cliente cadastrarCliente(){
+    public static Cliente cadastrarCliente() throws Exception{
         String nome = capturarDados("Qual é o nome do cliente?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do cliente:")).nextLine();
         String email = capturarDados("Qual é o email do cliente?").nextLine();
+        ServiceCliente.verificarDuplicidadeNoCadastro(email);
         return ServiceCliente.cadastrarCliente(nome, cpf, email);
     }
 }
