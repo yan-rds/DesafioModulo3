@@ -37,4 +37,17 @@ public class Sistema {
         return ServiceVendedor.cadastrarVendedor(nome, cpf, email);
     }
 
+    public static void menuInicial(){
+        System.out.println("Sistema de registo de vendas");
+        System.out.println("1 - Cadastrar um consumidor");
+        System.out.println("2 - Cadastrar um vendedor");
+        System.out.println("3 - Cadastrar uma venda");
+        System.out.println("4 - Exibir consumidores cadastrados");
+        System.out.println("5 - Exibir vendedores cadastrados");
+        System.out.println("6 - Exibir todas as vendas cadastradas");
+        System.out.println("7 - Pesquisar todas as compras de um consumidor");
+        System.out.println("8 - Pesquisar todas as vendas de um vendedor");
+        System.out.println("9 - Sair");
+    }
+
 }
