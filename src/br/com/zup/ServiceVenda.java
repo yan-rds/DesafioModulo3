@@ -24,6 +24,14 @@ public class ServiceVenda {
                 System.out.println(referencia);
             }
         }
+    }
 
+    public static void pesquisarComprasCliente (String cpf) throws Exception{
+        for (Venda referencia : listaDeVendas){
+            if (referencia.getCliente().getCpf().equals(cpf)){
+                System.out.println(referencia);
+            }
+        }
+        throw new Exception("Não há compras registradas neste CPF");
     }
 }
