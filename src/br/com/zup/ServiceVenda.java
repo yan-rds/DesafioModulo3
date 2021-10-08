@@ -8,7 +8,7 @@ public class ServiceVenda {
 
     public static Venda cadastrarVenda (String emailCliente, String emailVendedor, double Valor, String data) throws Exception{
         ServiceCliente.encontrarClientePeloEmail(emailCliente);
-        // Verificar emailVendedor e retornar um vendedor
+        ServiceVendedor.encontrarVendedorPeloEmail(emailCliente);
         // Instanciar uma venda com essas informações
         // Adicionar a venda à lista de vendas
         // Retornar Venda
