@@ -34,4 +34,13 @@ public class ServiceVenda {
         }
         throw new Exception("Não há compras registradas neste CPF");
     }
+
+    public static void pesquisarVendasVendedor (String email) throws Exception{
+        for (Venda referencia : listaDeVendas){
+            if (referencia.getCliente().getEmail().equalsIgnoreCase(email)){
+                System.out.println(referencia);
+            }
+        }
+        throw new Exception("Este vendedor não realizou vendas");
+    }
 }
