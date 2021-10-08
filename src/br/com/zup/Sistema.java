@@ -80,5 +80,15 @@ public class Sistema {
         }
     }
 
+    public static void tratarExcecoes() {
+        while (menu) {
+            try {
+                executar();
+            } catch (Exception erro) {
+                System.out.println(erro.getMessage());
+            }
+        }
+    }
+
 
 }
