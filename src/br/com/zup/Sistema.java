@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Sistema {
 
+    private static boolean menu = true;
+
     private static Scanner capturarDados (String mensagem){
         System.out.println(mensagem);
         return new Scanner(System.in);
@@ -49,5 +51,34 @@ public class Sistema {
         System.out.println("8 - Pesquisar todas as vendas de um vendedor");
         System.out.println("9 - Sair");
     }
+
+    public static void executar() throws Exception {
+        while (menu) {
+            menuInicial();
+            int escolha = capturarDados("Digite a opção desejada").nextInt();
+            if (escolha == 1) {
+                cadastrarCliente();
+            } else if (escolha == 2) {
+                cadastrarVendedor();
+            } else if (escolha == 3) {
+                cadastrarVenda();
+            } else if (escolha == 4) {
+                ServiceCliente.listarClientesCadastrados();
+            } else if (escolha == 5) {
+                ServiceVendedor.listarVendedoresCadastrados();
+            } else if (escolha == 6) {
+                ServiceVenda.listarVendasCadastradas();
+            } else if (escolha == 7) {
+                String cpf = capturarDados("Qual é o cpf do cliente que você quer consultar?").nextLine();
+                ServiceVenda.pesquisarComprasCliente(cpf);
+            } else if (escolha == 8) {
+                String email = capturarDados("Qual é o email do vendedor que você quer consultar?").nextLine();
+                ServiceVenda.pesquisarVendasVendedor(email);
+            } else if (escolha == 9) {
+                menu = false;
+            }
+        }
+    }
+
 
 }
