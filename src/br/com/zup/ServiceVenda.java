@@ -28,20 +28,28 @@ public class ServiceVenda {
     }
 
     public static void pesquisarComprasCliente (String cpf) throws Exception{
+        List<Venda> vendasDoCliente = new ArrayList<>();
         for (Venda referencia : listaDeVendas){
             if (referencia.getCliente().getCpf().equals(cpf)){
                 System.out.println(referencia);
+                vendasDoCliente.add(referencia);
             }
         }
-        throw new Exception("Não há compras registradas neste CPF");
+        if (vendasDoCliente.size() == 0) {
+            throw new Exception("Não há compras registradas neste CPF");
+        }
     }
 
     public static void pesquisarVendasVendedor (String email) throws Exception{
+        List<Venda> vendasDoUsuário = new ArrayList<>();
         for (Venda referencia : listaDeVendas){
             if (referencia.getVendedor().getEmail().equalsIgnoreCase(email)){
                 System.out.println(referencia);
+                vendasDoUsuário.add(referencia);
             }
         }
-        throw new Exception("Este vendedor não realizou vendas");
+        if (vendasDoUsuário.size() == 0) {
+            throw new Exception("Este vendedor não realizou vendas");
+        }
     }
 }
