@@ -7,5 +7,8 @@ public class ServiceVendedor {
 
     private static List<Vendedor> listaDeVendedor = new ArrayList<>();
 
-
+    public static Vendedor cadastrarVendedor(String nome, String cpf, String email){
+        Vendedor vendedor = new Vendedor(nome, cpf, email);
+        return vendedor;
+    }
 }
