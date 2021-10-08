@@ -35,9 +35,12 @@ public class ServiceVendedor {
 
     }
 
-    public static void verificarDuplicidadeNoCadastro(String email) throws Exception{
+    public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{
         for (Vendedor referencia : listaDeVendedor){
-            if (referencia.getEmail().equalsIgnoreCase(email)){
+            if (referencia.getEmail().equalsIgnoreCase(cpfOuEmail)){
+                throw new Exception("Vendedor já cadastrado");
+            }
+            else if (referencia.getCpf().equalsIgnoreCase(cpfOuEmail)){
                 throw new Exception("Vendedor já cadastrado");
             }
         }

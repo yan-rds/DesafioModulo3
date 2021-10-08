@@ -20,6 +20,7 @@ public class Sistema {
     public static Cliente cadastrarCliente() throws Exception{
         String nome = capturarDados("Qual é o nome do cliente?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do cliente:")).nextLine();
+        ServiceCliente.verificarDuplicidadeNoCadastro(cpf);
         String email = capturarDados("Qual é o email do cliente?").nextLine();
         ServiceCliente.validarEmail(email);
         ServiceCliente.verificarDuplicidadeNoCadastro(email);
@@ -29,6 +30,7 @@ public class Sistema {
     public static Vendedor cadastrarVendedor() throws Exception{
         String nome = capturarDados("Qual é o nome do vendedor??").nextLine();
         String cpf = capturarDados(("Qual é o CPF do vendedor?:")).nextLine();
+        ServiceCliente.verificarDuplicidadeNoCadastro(cpf);
         String email = capturarDados("Qual é o email do vendedor?").nextLine();
         ServiceVendedor.verificarDuplicidadeNoCadastro(email);
         ServiceCliente.validarEmail(email);
