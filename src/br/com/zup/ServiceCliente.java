@@ -30,4 +30,17 @@ public class ServiceCliente {
         throw new Exception("Não existe um cliente cadastrado com este email");
     }
 
+    public static void listarClientesCadastrados() {
+        System.out.println("Clientes cadastrados: ");
+        if (listaDeClientes.size() == 0){
+            System.out.println("No momento não há nenhum cliente cadastrado");
+        }
+        else {
+            for (Cliente referencia : listaDeClientes) {
+                System.out.println(referencia);
+            }
+        }
+
+    }
+
 }
