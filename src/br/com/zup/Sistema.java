@@ -9,11 +9,12 @@ public class Sistema {
         return new Scanner(System.in);
     }
 
-    public static Venda cadastrarVenda(){
+    public static Venda cadastrarVenda() throws Exception{
         String emailCliente = capturarDados("Digite o email do cliente que deseja cadastrar esta venda").nextLine();
         String emailVendedor = capturarDados("Digite o email do vendedor que realizou a venda").nextLine();
         double valor = capturarDados("Qual é o valor desta venda").nextDouble();
         String data = capturarDados("Qual é a data do registro").nextLine();
+        return ServiceVenda.cadastrarVenda(emailCliente, emailVendedor, valor, data);
     }
 
     public static Cliente cadastrarCliente() throws Exception{
