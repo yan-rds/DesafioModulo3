@@ -11,11 +11,12 @@ public class ServiceVenda {
         Vendedor vendedor = ServiceVendedor.encontrarVendedorPeloEmail(emailVendedor);
         Venda venda = new Venda(cliente, vendedor, valor, data);
         listaDeVendas.add(venda);
+        System.out.println("Venda cadastrada: \n" + venda);
         return venda;
     }
 
     public static void listarVendasCadastradas() {
-        System.out.println("Clientes cadastrados: ");
+        System.out.println("Vendas cadastrados: ");
         if (listaDeVendas.size() == 0){
             System.out.println("No momento não há nenhuma venda cadastrada");
         }
@@ -37,7 +38,7 @@ public class ServiceVenda {
 
     public static void pesquisarVendasVendedor (String email) throws Exception{
         for (Venda referencia : listaDeVendas){
-            if (referencia.getCliente().getEmail().equalsIgnoreCase(email)){
+            if (referencia.getVendedor().getEmail().equalsIgnoreCase(email)){
                 System.out.println(referencia);
             }
         }

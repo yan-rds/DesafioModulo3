@@ -10,6 +10,7 @@ public class ServiceVendedor {
     public static Vendedor cadastrarVendedor(String nome, String cpf, String email){
         Vendedor vendedor = new Vendedor(nome, cpf, email);
         listaDeVendedor.add(vendedor);
+        System.out.println("Vendedor cadastrado\n" + vendedor);
         return vendedor;
     }
 
@@ -23,7 +24,7 @@ public class ServiceVendedor {
     }
 
     public static void listarVendedoresCadastrados() {
-        System.out.println("Clientes cadastrados: ");
+        System.out.println("Vendedores cadastrados: ");
         if (listaDeVendedor.size() == 0){
             System.out.println("No momento não há nenhum vendedor cadastrado");
         }
@@ -38,10 +39,10 @@ public class ServiceVendedor {
     public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{
         for (Vendedor referencia : listaDeVendedor){
             if (referencia.getEmail().equalsIgnoreCase(cpfOuEmail)){
-                throw new Exception("Vendedor já cadastrado");
+                throw new Exception("Já existe um vendedor cadastrado com este email");
             }
             else if (referencia.getCpf().equalsIgnoreCase(cpfOuEmail)){
-                throw new Exception("Vendedor já cadastrado");
+                throw new Exception("Já existe um vendedor cadastrado com este cpf");
             }
         }
     }

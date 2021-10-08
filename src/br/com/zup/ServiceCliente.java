@@ -10,16 +10,17 @@ public class ServiceCliente {
     public static Cliente cadastrarCliente (String nome, String cpf, String email){
         Cliente cliente = new Cliente(nome, cpf, email);
         listaDeClientes.add(cliente);
+        System.out.println("Cliente cadastrado\n" + cliente);
         return cliente;
     }
 
     public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{
         for (Cliente referencia : listaDeClientes){
             if (referencia.getEmail().equalsIgnoreCase(cpfOuEmail)){
-                throw new Exception("Cliente já cadastrado");
+                throw new Exception("Já existe um cliente cadastrado com este email");
             }
             else if (referencia.getCpf().equalsIgnoreCase(cpfOuEmail)){
-                throw new Exception("Cliente já cadastrado");
+                throw new Exception("Já existe um cliente cadastrado com este cpf");
             }
         }
     }
