@@ -4,7 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            ServiceCliente.validarEmail("@yan");
+            Sistema.cadastrarCliente();
+            ServiceCliente.verificarDuplicidadeNoCadastro("44");
         }catch (Exception erro){
             System.out.println(erro.getMessage());
         }

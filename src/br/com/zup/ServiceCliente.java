@@ -13,9 +13,12 @@ public class ServiceCliente {
         return cliente;
     }
 
-    public static void verificarDuplicidadeNoCadastro(String email) throws Exception{
+    public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{
         for (Cliente referencia : listaDeClientes){
-            if (referencia.getEmail().equalsIgnoreCase(email)){
+            if (referencia.getEmail().equalsIgnoreCase(cpfOuEmail)){
+                throw new Exception("Cliente já cadastrado");
+            }
+            else if (referencia.getCpf().equalsIgnoreCase(cpfOuEmail)){
                 throw new Exception("Cliente já cadastrado");
             }
         }
