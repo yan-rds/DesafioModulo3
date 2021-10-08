@@ -21,4 +21,17 @@ public class ServiceVendedor {
         }
         throw new Exception("Não existe um vendedor cadastrado com este email");
     }
+
+    public static void listarVendedoresCadastrados() {
+        System.out.println("Clientes cadastrados: ");
+        if (listaDeVendedor.size() == 0){
+            System.out.println("No momento não há nenhum vendedor cadastrado");
+        }
+        else {
+            for (Vendedor referencia : listaDeVendedor) {
+                System.out.println(referencia);
+            }
+        }
+
+    }
 }
