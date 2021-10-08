@@ -21,4 +21,13 @@ public class ServiceCliente {
         }
     }
 
+    public static Cliente encontrarClientePeloEmail (String email) throws Exception{
+        for (Cliente referencia : listaDeClientes){
+            if (referencia.getEmail().equalsIgnoreCase(email)){
+                return referencia;
+            }
+        }
+        throw new Exception("Não existe um cliente cadastrado com este email");
+    }
+
 }
