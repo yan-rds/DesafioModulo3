@@ -13,4 +13,17 @@ public class ServiceVenda {
         // Adicionar a venda à lista de vendas
         // Retornar Venda
     }
+
+    public static void listarVendasCadastradas() {
+        System.out.println("Clientes cadastrados: ");
+        if (listaDeVendas.size() == 0){
+            System.out.println("No momento não há nenhuma venda cadastrada");
+        }
+        else {
+            for (Venda referencia : listaDeVendas) {
+                System.out.println(referencia);
+            }
+        }
+
+    }
 }
