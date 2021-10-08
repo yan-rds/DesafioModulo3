@@ -21,14 +21,17 @@ public class Sistema {
         String nome = capturarDados("Qual é o nome do cliente?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do cliente:")).nextLine();
         String email = capturarDados("Qual é o email do cliente?").nextLine();
+        ServiceCliente.validarEmail(email);
         ServiceCliente.verificarDuplicidadeNoCadastro(email);
         return ServiceCliente.cadastrarCliente(nome, cpf, email);
     }
 
-    public static Vendedor cadastrarVendedor(){
+    public static Vendedor cadastrarVendedor() throws Exception{
         String nome = capturarDados("Qual é o nome do vendedor??").nextLine();
         String cpf = capturarDados(("Qual é o CPF do vendedor?:")).nextLine();
         String email = capturarDados("Qual é o email do vendedor?").nextLine();
+        ServiceCliente.validarEmail(email);
         return ServiceVendedor.cadastrarVendedor(nome, cpf, email);
     }
+
 }
