@@ -23,4 +23,10 @@ public class Sistema {
         ServiceCliente.verificarDuplicidadeNoCadastro(email);
         return ServiceCliente.cadastrarCliente(nome, cpf, email);
     }
+
+    public static Vendedor cadastrarVendedor(){
+        String nome = capturarDados("Qual é o nome do vendedor??").nextLine();
+        String cpf = capturarDados(("Qual é o CPF do vendedor?:")).nextLine();
+        String email = capturarDados("Qual é o email do vendedor?").nextLine();
+    }
 }
