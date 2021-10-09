@@ -47,10 +47,6 @@ public class ServiceCliente {
 
     }
 
-    public static void validarEmail (String email) throws Exception{
-        if (!email.contains("@")){
-            throw new Exception("Email inválido");
-        }
-    }
+
 
 }

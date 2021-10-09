@@ -28,7 +28,7 @@ public class Sistema {
         Validadores.validarCpf(cpf);
         ServiceCliente.verificarDuplicidadeNoCadastro(cpf);
         String email = capturarDados("Qual é o email do cliente?").nextLine();
-        ServiceCliente.validarEmail(email);
+        Validadores.validarEmail(email);
         ServiceCliente.verificarDuplicidadeNoCadastro(email);
         return ServiceCliente.cadastrarCliente(nome, cpf, email);
     }
@@ -40,7 +40,7 @@ public class Sistema {
         ServiceVendedor.verificarDuplicidadeNoCadastro(cpf);
         String email = capturarDados("Qual é o email do vendedor?").nextLine();
         ServiceVendedor.verificarDuplicidadeNoCadastro(email);
-        ServiceCliente.validarEmail(email);
+        Validadores.validarEmail(email);
         return ServiceVendedor.cadastrarVendedor(nome, cpf, email);
     }
 
