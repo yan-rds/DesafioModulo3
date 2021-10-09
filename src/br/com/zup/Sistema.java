@@ -63,6 +63,12 @@ public class Sistema {
         ServiceVenda.pesquisarComprasCliente(cpf);
     }
 
+    public static void pesquisarVendasVendedor() throws Exception{
+        String email = capturarDados("Qual é o email do vendedor que você quer consultar?").nextLine();
+        Validadores.validarEmail(email);
+        ServiceVenda.pesquisarVendasVendedor(email);
+    }
+
     public static void executar() throws Exception {
         while (menu) {
             menuInicial();
@@ -82,8 +88,7 @@ public class Sistema {
             } else if (escolha == 7) {
                 consultarComprasCliente();
             } else if (escolha == 8) {
-                String email = capturarDados("Qual é o email do vendedor que você quer consultar?").nextLine();
-                ServiceVenda.pesquisarVendasVendedor(email);
+                pesquisarVendasVendedor();
             } else if (escolha == 9) {
                 menu = false;
             }
