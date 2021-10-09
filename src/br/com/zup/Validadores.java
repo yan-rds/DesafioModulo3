@@ -35,7 +35,7 @@ public class Validadores {
         S8 = cpf.substring(7, 8); N8 = Integer.parseInt(S8);
         S9 = cpf.substring(8, 9); N9 = Integer.parseInt(S9);
 
-        // Definir os dígitos verificadores para esse cpf
+        // Definir os dígitos verificadores corretos para esse cpf
         verificador1 = (N1 * 10 + N2 * 9 + N3 * 8 + N4 * 7 + N5 * 6 + N6 * 5 + N7 * 4 + N8 * 3 + N9 * 2);
         if ((verificador1 % 11) < 2){
             verificador1 = 0;
@@ -53,5 +53,10 @@ public class Validadores {
         }
 
         // Comparar se os digitos verificadores são iguais ao dado pelo usuario
+        cpfIdeal = (S1 + S2 + S3 + S4 + S5 + S6 + S7 + S8 + S9 + verificador1 + "" + verificador2);
+        if (!cpfIdeal.equals(cpfRecebido)){
+            throw new Exception("Cpf inválido.");
+        }
+
     }
 }
