@@ -52,7 +52,7 @@ public class Validadores {
             verificador2 = 11 - (verificador2 % 11);
         }
 
-        // Comparar se os digitos verificadores são iguais ao dado pelo usuario
+        // Comparar cpf ideal com cpf informado
         cpfIdeal = (S1 + S2 + S3 + S4 + S5 + S6 + S7 + S8 + S9 + verificador1 + "" + verificador2);
         if (!cpfIdeal.equals(cpfRecebido)){
             throw new Exception("Cpf inválido.");

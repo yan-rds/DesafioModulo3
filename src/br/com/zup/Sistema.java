@@ -25,6 +25,7 @@ public class Sistema {
     public static Cliente cadastrarCliente() throws Exception{
         String nome = capturarDados("Qual é o nome do cliente?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do cliente:")).nextLine();
+        Validadores.validarCpf(cpf);
         ServiceCliente.verificarDuplicidadeNoCadastro(cpf);
         String email = capturarDados("Qual é o email do cliente?").nextLine();
         ServiceCliente.validarEmail(email);
@@ -35,6 +36,7 @@ public class Sistema {
     public static Vendedor cadastrarVendedor() throws Exception{
         String nome = capturarDados("Qual é o nome do vendedor?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do vendedor?:")).nextLine();
+        Validadores.validarCpf(cpf);
         ServiceVendedor.verificarDuplicidadeNoCadastro(cpf);
         String email = capturarDados("Qual é o email do vendedor?").nextLine();
         ServiceVendedor.verificarDuplicidadeNoCadastro(email);
@@ -73,6 +75,7 @@ public class Sistema {
                 ServiceVenda.listarVendasCadastradas();
             } else if (escolha == 7) {
                 String cpf = capturarDados("Qual é o cpf do cliente que você quer consultar?").nextLine();
+                Validadores.validarCpf(cpf);
                 ServiceVenda.pesquisarComprasCliente(cpf);
             } else if (escolha == 8) {
                 String email = capturarDados("Qual é o email do vendedor que você quer consultar?").nextLine();
