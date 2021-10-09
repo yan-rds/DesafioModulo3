@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ServiceVendedor {
 
+
     private static List<Vendedor> listaDeVendedor = new ArrayList<>();
 
     public static Vendedor cadastrarVendedor(String nome, String cpf, String email){
@@ -14,6 +15,7 @@ public class ServiceVendedor {
         return vendedor;
     }
 
+
     public static Vendedor encontrarVendedorPeloEmail (String email) throws Exception{
         for (Vendedor referencia : listaDeVendedor){
             if (referencia.getEmail().equalsIgnoreCase(email)){
@@ -22,6 +24,7 @@ public class ServiceVendedor {
         }
         throw new Exception("Não existe um vendedor cadastrado com este email");
     }
+
 
     public static void listarVendedoresCadastrados() {
         System.out.println("Vendedores cadastrados: ");
