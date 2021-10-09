@@ -22,7 +22,7 @@ public class Validadores {
         }
 
         // Transformar os caracteres do cpf em Int
-        String S1, S2, S3, S4, S5, S6, S7, S8, S9, cpfIdeal = cpf;
+        String S1, S2, S3, S4, S5, S6, S7, S8, S9, cpfIdeal = cpfRecebido;
         int N1, N2, N3, N4, N5, N6, N7, N8, N9, verificador1, verificador2;
 
         S1 = cpf.substring(0, 1); N1 = Integer.parseInt(S1);
