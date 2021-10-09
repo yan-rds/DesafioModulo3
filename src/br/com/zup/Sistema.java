@@ -57,6 +57,12 @@ public class Sistema {
         System.out.println("9 - Sair");
     }
 
+    public static void consultarComprasCliente() throws Exception{
+        String cpf = capturarDados("Qual é o cpf do cliente que você quer consultar?").nextLine();
+        Validadores.validarCpf(cpf);
+        ServiceVenda.pesquisarComprasCliente(cpf);
+    }
+
     public static void executar() throws Exception {
         while (menu) {
             menuInicial();
@@ -74,9 +80,7 @@ public class Sistema {
             } else if (escolha == 6) {
                 ServiceVenda.listarVendasCadastradas();
             } else if (escolha == 7) {
-                String cpf = capturarDados("Qual é o cpf do cliente que você quer consultar?").nextLine();
-                Validadores.validarCpf(cpf);
-                ServiceVenda.pesquisarComprasCliente(cpf);
+                consultarComprasCliente();
             } else if (escolha == 8) {
                 String email = capturarDados("Qual é o email do vendedor que você quer consultar?").nextLine();
                 ServiceVenda.pesquisarVendasVendedor(email);
