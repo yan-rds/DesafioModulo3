@@ -1,5 +1,7 @@
 package br.com.zup;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Sistema {
@@ -15,7 +17,8 @@ public class Sistema {
         String emailCliente = capturarDados("Digite o email do cliente que deseja cadastrar esta venda").nextLine();
         String emailVendedor = capturarDados("Digite o email do vendedor que realizou a venda").nextLine();
         double valor = capturarDados("Qual é o valor desta venda").nextDouble();
-        String data = capturarDados("Qual é a data do registro").nextLine();
+        Calendar c = Calendar.getInstance();
+        Date data = c.getTime();
         return ServiceVenda.cadastrarVenda(emailCliente, emailVendedor, valor, data);
     }
 

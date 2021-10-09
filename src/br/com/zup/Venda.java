@@ -1,13 +1,18 @@
 package br.com.zup;
 
+
+import java.text.DateFormat;
+import java.util.Date;
+
 public class Venda {
     private Cliente cliente;
     private Vendedor vendedor;
     private double valor;
-    private String data;
+    private Date data;
+    private DateFormat dataFormatada = DateFormat.getDateTimeInstance();
 
 
-    public Venda(Cliente cliente, Vendedor vendedor, double valor, String data) {
+    public Venda(Cliente cliente, Vendedor vendedor, double valor, Date data) {
         this.cliente = cliente;
         this.vendedor = vendedor;
         this.valor = valor;
@@ -38,11 +43,11 @@ public class Venda {
         this.valor = valor;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
@@ -53,7 +58,7 @@ public class Venda {
         concatenador.append("\nCliente: " + cliente);
         concatenador.append("\nVendedor: " + vendedor);
         concatenador.append("\nValor: R$ " + valor);
-        concatenador.append("\nData de registro: " + data);
+        concatenador.append("\nData de registro: " + dataFormatada.format((data)));
         return concatenador.toString();
     }
 }

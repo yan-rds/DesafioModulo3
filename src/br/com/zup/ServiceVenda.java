@@ -1,12 +1,14 @@
 package br.com.zup;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ServiceVenda {
     private static List<Venda> listaDeVendas = new ArrayList<>();
 
-    public static Venda cadastrarVenda (String emailCliente, String emailVendedor, double valor, String data) throws Exception{
+    public static Venda cadastrarVenda (String emailCliente, String emailVendedor, double valor, Date data) throws Exception{
         Cliente cliente = ServiceCliente.encontrarClientePeloEmail(emailCliente);
         Vendedor vendedor = ServiceVendedor.encontrarVendedorPeloEmail(emailVendedor);
         Venda venda = new Venda(cliente, vendedor, valor, data);
