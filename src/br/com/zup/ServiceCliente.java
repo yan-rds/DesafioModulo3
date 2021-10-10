@@ -40,9 +40,8 @@ public class ServiceCliente {
             System.out.println("No momento não há nenhum cliente cadastrado");
         }
         else {
-            for (Cliente referencia : listaDeClientes) {
-                System.out.println(referencia);
-            }
+            listaDeClientes.forEach(System.out::println);
+
         }
 
     }
