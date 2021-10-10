@@ -23,9 +23,7 @@ public class ServiceVenda {
             System.out.println("No momento não há nenhuma venda cadastrada");
         }
         else {
-            for (Venda referencia : listaDeVendas) {
-                System.out.println(referencia);
-            }
+            listaDeVendas.forEach(System.out::println);
         }
     }
 
