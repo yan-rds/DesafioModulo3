@@ -10,7 +10,7 @@ public class ServiceCliente {
     public static Cliente cadastrarCliente (String nome, String cpf, String email){
         Cliente cliente = new Cliente(nome, cpf, email);
         listaDeClientes.add(cliente);
-        System.out.println("Cliente cadastrado\n" + cliente);
+        System.out.println("Cliente cadastrado\nNome: " + cliente);
         return cliente;
     }
 

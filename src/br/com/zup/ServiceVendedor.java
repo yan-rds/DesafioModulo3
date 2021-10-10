@@ -11,7 +11,7 @@ public class ServiceVendedor {
     public static Vendedor cadastrarVendedor(String nome, String cpf, String email){
         Vendedor vendedor = new Vendedor(nome, cpf, email);
         listaDeVendedor.add(vendedor);
-        System.out.println("Vendedor cadastrado\n" + vendedor);
+        System.out.println("Vendedor cadastrado\nNome: " + vendedor);
         return vendedor;
     }
 
