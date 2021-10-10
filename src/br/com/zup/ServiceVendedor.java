@@ -2,6 +2,8 @@ package br.com.zup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class ServiceVendedor {
 
@@ -15,10 +17,19 @@ public class ServiceVendedor {
         return vendedor;
     }
 
+   /* public static Vendedor encontrarVendedorPeloEmail (String email) throws Exception{
+        Predicate<Vendedor> vendedorEncontrado = Vendedor -> Vendedor.getEmail().equals(email);
+        Function<Vendedor, Vendedor> retornarVendedor = Vendedor -> Vendedor;
+        listaDeVendedor.stream().filter(vendedorEncontrado)
+        return retornarVendedor;
+
+
+        throw new Exception("Não existe um vendedor cadastrado com este email");
+    }*/
 
     public static Vendedor encontrarVendedorPeloEmail (String email) throws Exception{
-        for (Vendedor referencia : listaDeVendedor){
-            if (referencia.getEmail().equalsIgnoreCase(email)){
+        for (Vendedor referencia : listaDeVendedor) {
+            if (referencia.getEmail().equalsIgnoreCase(email)) {
                 return referencia;
             }
         }
@@ -28,13 +39,10 @@ public class ServiceVendedor {
 
     public static void listarVendedoresCadastrados() {
         System.out.println("Vendedores cadastrados: ");
+        listaDeVendedor.forEach(System.out::println);
         if (listaDeVendedor.size() == 0){
             System.out.println("No momento não há nenhum vendedor cadastrado");
         }
-        else {
-            listaDeVendedor.forEach(vendedor -> System.out.println(vendedor));
-        }
-
     }
 
     public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{

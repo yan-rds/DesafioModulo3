@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class ServiceVenda {
     private static List<Venda> listaDeVendas = new ArrayList<>();
@@ -27,29 +29,21 @@ public class ServiceVenda {
         }
     }
 
+
+
     public static void pesquisarComprasCliente (String cpf) throws Exception{
-        List<Venda> vendasDoCliente = new ArrayList<>();
-        for (Venda referencia : listaDeVendas){
-            if (referencia.getCliente().getCpf().equals(cpf)){
-                System.out.println(referencia);
-                vendasDoCliente.add(referencia);
-            }
-        }
-        if (vendasDoCliente.size() == 0) {
-            throw new Exception("Não há compras registradas neste CPF");
+        Predicate<Venda> vendasEncontradas = Vendas -> Vendas.getCliente().getCpf().equals(cpf);
+        listaDeVendas.stream().filter(vendasEncontradas).forEach(System.out::println);
+        if (listaDeVendas.stream().noneMatch(vendasEncontradas)) {
+            throw new Exception("Não há compras neste Cpf");
         }
     }
 
     public static void pesquisarVendasVendedor (String email) throws Exception{
-        List<Venda> vendasDoUsuário = new ArrayList<>();
-        for (Venda referencia : listaDeVendas){
-            if (referencia.getVendedor().getEmail().equalsIgnoreCase(email)){
-                System.out.println(referencia);
-                vendasDoUsuário.add(referencia);
-            }
-        }
-        if (vendasDoUsuário.size() == 0) {
-            throw new Exception("Este vendedor não realizou vendas");
+        Predicate<Venda> vendasEncontradas = Vendas -> Vendas.getCliente().getEmail().equals(email);
+        listaDeVendas.stream().filter(vendasEncontradas).forEach(System.out::println);
+        if (listaDeVendas.stream().noneMatch(vendasEncontradas)) {
+            throw new Exception("Não há compras neste Cpf");
         }
     }
 }
