@@ -32,9 +32,7 @@ public class ServiceVendedor {
             System.out.println("No momento não há nenhum vendedor cadastrado");
         }
         else {
-            for (Vendedor referencia : listaDeVendedor) {
-                System.out.println(referencia);
-            }
+            listaDeVendedor.forEach(vendedor -> System.out.println(vendedor));
         }
 
     }
