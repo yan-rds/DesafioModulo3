@@ -61,6 +61,7 @@ public class Validadores {
 
     }
 
+    // Este método substitui pontos e traços do CPF por espaços vazios.
     public static String corrigirCpf (String cpf){
         cpf = cpf.replaceAll("\\.", "");
         cpf = cpf.replaceAll("-", "");
