@@ -8,11 +8,10 @@ public class ServiceCliente {
 
     private static List<Cliente> listaDeClientes = new ArrayList<>();
 
-    public static Cliente cadastrarCliente (String nome, String cpf, String email){
+    public static void cadastrarCliente (String nome, String cpf, String email){
         Cliente cliente = new Cliente(nome, cpf, email);
         listaDeClientes.add(cliente);
         System.out.println("Cliente cadastrado\nNome: " + cliente);
-        return cliente;
     }
 
     public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{
@@ -37,7 +36,4 @@ public class ServiceCliente {
         listaDeClientes.forEach(System.out::println);
         listaDeClientes.stream().findFirst().orElseThrow(() -> new Exception("Não há."));
     }
-
-
-
 }
