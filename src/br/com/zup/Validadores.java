@@ -61,6 +61,12 @@ public class Validadores {
 
     }
 
+    public static String corrigirCpf (String cpf){
+        cpf = cpf.replaceAll("\\.", "");
+        cpf = cpf.replaceAll("-", "");
+        return cpf;
+    }
+
     // Validação simples de email, checando se contém @.
     public static void validarEmail (String email) throws Exception{
         if (!email.contains("@")){

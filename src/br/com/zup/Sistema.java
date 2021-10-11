@@ -31,24 +31,26 @@ public class Sistema {
     public static void cadastrarCliente() throws Exception{
         String nome = capturarDados("Qual é o nome do cliente?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do cliente:")).nextLine();
-        Validadores.validarCpf(cpf);
-        ServiceCliente.verificarDuplicidadeNoCadastro(cpf);
+        String cpfCorrigido = Validadores.corrigirCpf(cpf);
+        Validadores.validarCpf(cpfCorrigido);
+        ServiceCliente.verificarDuplicidadeNoCadastro(cpfCorrigido);
         String email = capturarDados("Qual é o email do cliente?").nextLine();
         Validadores.validarEmail(email);
         ServiceCliente.verificarDuplicidadeNoCadastro(email);
-        ServiceCliente.cadastrarCliente(nome, cpf, email);
+        ServiceCliente.cadastrarCliente(nome, cpfCorrigido, email);
     }
 
     // Método que recebe as informações necessárias para cadastrar um vendedor e as valida
     public static void cadastrarVendedor() throws Exception{
         String nome = capturarDados("Qual é o nome do vendedor?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do vendedor?:")).nextLine();
-        Validadores.validarCpf(cpf);
-        ServiceVendedor.verificarDuplicidadeNoCadastro(cpf);
+        String cpfCorrigido = Validadores.corrigirCpf(cpf);
+        Validadores.validarCpf(cpfCorrigido);
+        ServiceVendedor.verificarDuplicidadeNoCadastro(cpfCorrigido);
         String email = capturarDados("Qual é o email do vendedor?").nextLine();
         ServiceVendedor.verificarDuplicidadeNoCadastro(email);
         Validadores.validarEmail(email);
-        ServiceVendedor.cadastrarVendedor(nome, cpf, email);
+        ServiceVendedor.cadastrarVendedor(nome, cpfCorrigido, email);
     }
 
     // Este método exibe o menu inicial para o usuário
@@ -68,8 +70,9 @@ public class Sistema {
     // Este método recebe o CPF do cliente para fins de pesquisa e o valida.
     public static void consultarComprasCliente() throws Exception{
         String cpf = capturarDados("Qual é o cpf do cliente que você quer consultar?").nextLine();
-        Validadores.validarCpf(cpf);
-        ServiceVenda.pesquisarComprasCliente(cpf);
+        String cpfCorrigido = Validadores.corrigirCpf(cpf);
+        Validadores.validarCpf(cpfCorrigido);
+        ServiceVenda.pesquisarComprasCliente(cpfCorrigido);
     }
 
     // Este método recebe o E-mail do vendedor para fins de pesquisa e o valida.
