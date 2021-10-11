@@ -27,6 +27,7 @@ public class ServiceVenda {
         else {
             listaDeVendas.forEach(System.out::println);
         }
+
     }
 
 

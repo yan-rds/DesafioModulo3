@@ -2,6 +2,7 @@ package br.com.zup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class ServiceCliente {
 
@@ -15,13 +16,10 @@ public class ServiceCliente {
     }
 
     public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{
-        for (Cliente referencia : listaDeClientes){
-            if (referencia.getEmail().equalsIgnoreCase(cpfOuEmail)){
-                throw new Exception("Já existe um cliente cadastrado com este email");
-            }
-            else if (referencia.getCpf().equalsIgnoreCase(cpfOuEmail)){
-                throw new Exception("Já existe um cliente cadastrado com este cpf");
-            }
+        Predicate <Cliente> emailDuplicado = Cliente -> Cliente.getEmail().equalsIgnoreCase(cpfOuEmail);
+        Predicate <Cliente> cpfDuplicado = Cliente -> Cliente.getCpf().equalsIgnoreCase(cpfOuEmail);
+        if (listaDeClientes.stream().anyMatch(emailDuplicado) | listaDeClientes.stream().anyMatch(cpfDuplicado)){
+            throw new Exception("Já existe um cliente com este dado cadastrado");
         }
     }
 
@@ -36,14 +34,10 @@ public class ServiceCliente {
 
     public static void listarClientesCadastrados() {
         System.out.println("Clientes cadastrados: ");
+        listaDeClientes.forEach(System.out::println);
         if (listaDeClientes.size() == 0){
             System.out.println("No momento não há nenhum cliente cadastrado");
         }
-        else {
-            listaDeClientes.forEach(System.out::println);
-
-        }
-
     }
 
 

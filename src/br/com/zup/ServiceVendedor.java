@@ -46,13 +46,10 @@ public class ServiceVendedor {
     }
 
     public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{
-        for (Vendedor referencia : listaDeVendedor){
-            if (referencia.getEmail().equalsIgnoreCase(cpfOuEmail)){
-                throw new Exception("Já existe um vendedor cadastrado com este email");
-            }
-            else if (referencia.getCpf().equalsIgnoreCase(cpfOuEmail)){
-                throw new Exception("Já existe um vendedor cadastrado com este cpf");
-            }
+        Predicate <Vendedor> emailDuplicado = Vendedor -> Vendedor.getEmail().equalsIgnoreCase(cpfOuEmail);
+        Predicate <Vendedor> cpfDuplicado = Vendedor -> Vendedor.getCpf().equalsIgnoreCase(cpfOuEmail);
+        if (listaDeVendedor.stream().anyMatch(emailDuplicado) | listaDeVendedor.stream().anyMatch(cpfDuplicado)){
+            throw new Exception("Já existe um vendedor com este dado cadastrado");
         }
     }
 }
