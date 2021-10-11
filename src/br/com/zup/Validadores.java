@@ -1,7 +1,11 @@
 package br.com.zup;
 
 public class Validadores {
+    // Esta classe criará validadores para os dados que o usuário inserir, não estando ligada a nenhum objeto específico
 
+    // Método que validará CPF, essa validação é feita baseada nos 9 primeiros dígitos e uma série de operações
+    // matemáticas que darão os verificadores (dois últimos digitos) corretos para aquela sequencia de 9 dígitos.
+    // Ao final ele compara os verificadores corretos com o informado pelo usuário, e cria uma exceção caso divirjam.
     public static void validarCpf (String cpf) throws Exception{
         // Recusar CPFs impossíveis
         if (cpf.equals("00000000000") ||
@@ -57,6 +61,7 @@ public class Validadores {
 
     }
 
+    // Validação simples de email, checando se contém @.
     public static void validarEmail (String email) throws Exception{
         if (!email.contains("@")){
             throw new Exception("Email inválido");

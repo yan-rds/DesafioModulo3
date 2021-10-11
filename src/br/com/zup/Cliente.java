@@ -1,6 +1,8 @@
 package br.com.zup;
 
 public class Cliente {
+    // Classe que moldará meus objetos Cliente
+
     private String nome;
     private String cpf;
     private String email;

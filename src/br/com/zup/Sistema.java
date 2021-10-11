@@ -5,23 +5,29 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Sistema {
+    // Essa classe fará a interação usuário/programa, recebendo dados e exibindo informações.
 
-    private static boolean menu = true;
+    private static boolean menu = true; // Variável estática acessada pelos métodos Executar e TratarExceções
 
+    // Método que envia uma mensagem ao usuário e recebe uma resposta
     private static Scanner capturarDados (String mensagem){
         System.out.println(mensagem);
         return new Scanner(System.in);
     }
 
+    // Método que recebe as informações necessárias para cadastro de uma venda e as valida, registrando data e horário.
     public static void cadastrarVenda() throws Exception{
         String emailCliente = capturarDados("Digite o email do cliente que deseja cadastrar esta venda").nextLine();
+        Validadores.validarEmail(emailCliente);
         String emailVendedor = capturarDados("Digite o email do vendedor que realizou a venda").nextLine();
+        Validadores.validarEmail(emailVendedor);
         double valor = capturarDados("Qual é o valor desta venda").nextDouble();
         Calendar c = Calendar.getInstance();
         Date data = c.getTime();
         ServiceVenda.cadastrarVenda(emailCliente, emailVendedor, valor, data);
     }
 
+    // Método que recebe as informações necessárias para cadastro de um cliente e as valida.
     public static void cadastrarCliente() throws Exception{
         String nome = capturarDados("Qual é o nome do cliente?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do cliente:")).nextLine();
@@ -33,6 +39,7 @@ public class Sistema {
         ServiceCliente.cadastrarCliente(nome, cpf, email);
     }
 
+    // Método que recebe as informações necessárias para cadastrar um vendedor e as valida
     public static void cadastrarVendedor() throws Exception{
         String nome = capturarDados("Qual é o nome do vendedor?").nextLine();
         String cpf = capturarDados(("Qual é o CPF do vendedor?:")).nextLine();
@@ -44,6 +51,7 @@ public class Sistema {
         ServiceVendedor.cadastrarVendedor(nome, cpf, email);
     }
 
+    // Este método exibe o menu inicial para o usuário
     public static void menuInicial(){
         System.out.println("Sistema de registo de vendas");
         System.out.println("1 - Cadastrar um consumidor");
@@ -57,18 +65,21 @@ public class Sistema {
         System.out.println("9 - Sair");
     }
 
+    // Este método recebe o CPF do cliente para fins de pesquisa e o valida.
     public static void consultarComprasCliente() throws Exception{
         String cpf = capturarDados("Qual é o cpf do cliente que você quer consultar?").nextLine();
         Validadores.validarCpf(cpf);
         ServiceVenda.pesquisarComprasCliente(cpf);
     }
 
+    // Este método recebe o E-mail do vendedor para fins de pesquisa e o valida.
     public static void pesquisarVendasVendedor() throws Exception{
         String email = capturarDados("Qual é o email do vendedor que você quer consultar?").nextLine();
         Validadores.validarEmail(email);
         ServiceVenda.pesquisarVendasVendedor(email);
     }
 
+    // Este método executa todos os métodos acima, possibilitando a navegação do usuário pelas opções do programa.
     public static void executar() throws Exception {
         while (menu) {
             menuInicial();
@@ -95,6 +106,7 @@ public class Sistema {
         }
     }
 
+    // Por fim, este método trata as exceções que o método executar acumulou de todos os demais métodos.
     public static void tratarExcecoes() {
         while (menu) {
             try {

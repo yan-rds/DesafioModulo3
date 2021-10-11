@@ -1,6 +1,8 @@
 package br.com.zup;
 
 public class Vendedor {
+    // Classe que moldará meus objetos Vendedor
+
     private String nome;
     private String cpf;
     private String email;

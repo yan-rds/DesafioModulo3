@@ -5,11 +5,13 @@ import java.text.DateFormat;
 import java.util.Date;
 
 public class Venda {
+    // Classe que moldará meus objetos Venda.
+
     private Cliente cliente;
     private Vendedor vendedor;
     private double valor;
     private Date data;
-    private DateFormat dataFormatada = DateFormat.getDateTimeInstance();
+    private DateFormat dataFormatada = DateFormat.getDateTimeInstance(); // Formata a data para os padrões brasileiros
 
 
     public Venda(Cliente cliente, Vendedor vendedor, double valor, Date data) {
