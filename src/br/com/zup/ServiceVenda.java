@@ -19,18 +19,12 @@ public class ServiceVenda {
         return venda;
     }
 
-    public static void listarVendasCadastradas() {
+    public static void listarVendasCadastradas() throws Exception{
         System.out.println("Vendas cadastrados: ");
-        if (listaDeVendas.size() == 0){
-            System.out.println("No momento não há nenhuma venda cadastrada");
-        }
-        else {
-            listaDeVendas.forEach(System.out::println);
-        }
+        listaDeVendas.forEach(System.out::println);
+        listaDeVendas.stream().findFirst().orElseThrow(() -> new Exception("Não há."));
 
     }
-
-
 
     public static void pesquisarComprasCliente (String cpf) throws Exception{
         Predicate<Venda> vendasEncontradas = Vendas -> Vendas.getCliente().getCpf().equals(cpf);

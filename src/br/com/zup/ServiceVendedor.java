@@ -37,12 +37,10 @@ public class ServiceVendedor {
     }
 
 
-    public static void listarVendedoresCadastrados() {
+    public static void listarVendedoresCadastrados() throws Exception {
         System.out.println("Vendedores cadastrados: ");
         listaDeVendedor.forEach(System.out::println);
-        if (listaDeVendedor.size() == 0){
-            System.out.println("No momento não há nenhum vendedor cadastrado");
-        }
+        listaDeVendedor.stream().findFirst().orElseThrow(() -> new Exception("Não há."));
     }
 
     public static void verificarDuplicidadeNoCadastro(String cpfOuEmail) throws Exception{

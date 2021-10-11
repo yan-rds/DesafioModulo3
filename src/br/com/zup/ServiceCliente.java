@@ -32,12 +32,10 @@ public class ServiceCliente {
         throw new Exception("Não existe um cliente cadastrado com este email");
     }
 
-    public static void listarClientesCadastrados() {
+    public static void listarClientesCadastrados() throws Exception {
         System.out.println("Clientes cadastrados: ");
         listaDeClientes.forEach(System.out::println);
-        if (listaDeClientes.size() == 0){
-            System.out.println("No momento não há nenhum cliente cadastrado");
-        }
+        listaDeClientes.stream().findFirst().orElseThrow(() -> new Exception("Não há."));
     }
 
 
